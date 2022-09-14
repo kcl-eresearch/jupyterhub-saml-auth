@@ -1,5 +1,4 @@
 from distutils.core import setup
-from setuptools import find_packages
 import codecs
 import os.path
 
@@ -49,7 +48,7 @@ setup(name='jupyterhub_saml_auth',
       long_description_content_type='text/markdown',
       author='Wesley Uykimpang',
       url='https://github.com/ucsd-ets/jupyterhub-saml-auth',
-      packages=find_packages(),
+      packages=['jupyterhub_saml_auth'],
       install_requires=[
           'python3-saml',
           'jupyterhub', 
