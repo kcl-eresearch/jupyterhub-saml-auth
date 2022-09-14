@@ -36,11 +36,12 @@ class SAMLAuthenticator(Authenticator):
         '''
     )
 
-    username_attr = Callable(
+    username_attr = Unicode(
+        default_value='uid',
+        config=True,
         help='''
         The name of the attribute in the SAML response containing the username.
-        ''',
-        config=True
+        '''
     )
 
     login_service = Unicode(

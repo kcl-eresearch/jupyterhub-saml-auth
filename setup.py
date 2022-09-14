@@ -41,7 +41,7 @@ def get_description():
     return long_description
 
 
-setup(name='samlauthenticator',
+setup(name='jupyterhub-samlauthenticator',
       version=get_version('samlauthenticator/__init__.py'),
       python_requires='>=3.7.0',
       long_description=get_description(),
