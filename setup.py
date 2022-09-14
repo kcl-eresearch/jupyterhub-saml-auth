@@ -41,14 +41,14 @@ def get_description():
     return long_description
 
 
-setup(name='jupyterhub_saml_auth',
-      version=get_version('jupyterhub_saml_auth/__init__.py'),
+setup(name='samlauthenticator',
+      version=get_version('samlauthenticator/__init__.py'),
       python_requires='>=3.7.0',
       long_description=get_description(),
       long_description_content_type='text/markdown',
       author='Wesley Uykimpang',
       url='https://github.com/ucsd-ets/jupyterhub-saml-auth',
-      packages=['jupyterhub_saml_auth'],
+      packages=['samlauthenticator'],
       install_requires=[
           'python3-saml',
           'jupyterhub', 
