@@ -148,7 +148,7 @@ class ACSHandler(BaseHandler, BaseHandlerMixin):
             raise tornado.web.HTTPError(401)
 
         user_data = auth.get_attributes()
-        username = self.extract_username(user_data)
+        username = user_data[self.username_attr][0]
 
         user = await self.login_user({'name': username})
         if user is None:

@@ -16,11 +16,6 @@ pip install jupyterhub-saml-auth
 See the `jupyterhub_config.py` example configuration below for how to integrate this package with jupyterhub
 
 ```python
-def extract_username(acs_handler, attributes):
-    email = attributes['email'][0]
-    username = email.split('@')[0]
-    return username
-
 # The configuration path is for OneLogin's python3-saml package. This directory is where
 # settings.json & advanced_settings.json go. See https://github.com/onelogin/python3-saml
 # for more info about this
@@ -31,7 +26,7 @@ c.SAMLAuthenticator.saml_settings_path = '/app/etc'
 c.SAMLAuthenticator.session_cookie_names = {'PHPSESSIDIDP', 'SimpleSAMLAuthTokenIdp'}
 
 # Function that extracts the username from the SAML attributes.
-c.SAMLAuthenticator.extract_username = extract_username
+c.SAMLAuthenticator.username_attr = 'uid'
 
 # register the SAML authenticator with jupyterhub
 c.JupyterHub.authenticator_class = 'jupyterhub_saml_auth.SAMLAuthenticator'

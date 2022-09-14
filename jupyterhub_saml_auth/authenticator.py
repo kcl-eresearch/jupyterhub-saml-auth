@@ -36,13 +36,9 @@ class SAMLAuthenticator(Authenticator):
         '''
     )
 
-    extract_username = Callable(
+    username_attr = Callable(
         help='''
-        Extract the username from the attributes returned by the IdP.
-
-        1. the ACSHandler instance if needed
-        2. Takes in a dict with the attributes, must return a
-        username as a string
+        The name of the attribute in the SAML response containing the username.
         ''',
         config=True
     )
@@ -95,7 +91,7 @@ class SAMLAuthenticator(Authenticator):
         self.logout_handler.saml_settings = self.saml_settings_path
 
         self.logout_handler.session_cookie_names = self.session_cookie_names
-        self.acs_handler.extract_username = self.extract_username
+        self.acs_handler.username_attr = self.username_attr
 
     def get_handlers(self, app):
         self.configure_handlers()

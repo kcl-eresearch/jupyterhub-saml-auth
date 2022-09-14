@@ -3,14 +3,9 @@ import pwd
 import subprocess
 from tornado.log import app_log
 
-def extract_username(acs_handler, attributes):
-    email = attributes['email'][0]
-    username = email.split('@')[0]
-    return username
-
 c.SAMLAuthenticator.saml_settings_path = '/app/etc'
 c.SAMLAuthenticator.session_cookie_names = {'PHPSESSIDIDP', 'SimpleSAMLAuthTokenIdp'}
-c.SAMLAuthenticator.extract_username = extract_username
+c.SAMLAuthenticator.username_attr = 'uid'
 
 c.JupyterHub.authenticator_class = 'jupyterhub_saml_auth.SAMLAuthenticator'
 
